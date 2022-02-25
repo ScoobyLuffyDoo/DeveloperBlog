@@ -1,0 +1,18 @@
+{% for blog in blogPosts %} 
+{%if forloop.counter|divisibleby:"2"%}
+  <div class="fh5co-portfolio-item fh5co-img-right">
+{%else%}
+  <div class="fh5co-portfolio-item">
+{%endif%}
+    <div
+      class="fh5co-portfolio-figure animate-box"
+      style="background-image: url(Image.path);"
+    ></div>
+    <div class="fh5co-portfolio-description">
+      <h2>{{blog.blogTitle}}</h2>
+      <p>{{blog.description}}</p>
+      <p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
+    </div>
+  </div>
+  {%endfor%}
+</div>

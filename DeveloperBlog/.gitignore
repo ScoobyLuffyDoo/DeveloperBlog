@@ -1,0 +1,4 @@
+# Ignore all the Cache items
+blog/__pycache__
+blog/migrations/__pycache__
+DeveloperBlog/__pycache__
