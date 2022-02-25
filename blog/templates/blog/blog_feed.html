@@ -11,7 +11,7 @@
     <div class="fh5co-portfolio-description">
       <h2>{{blog.blogTitle}}</h2>
       <p>{{blog.description}}</p>
-      <p><a href="#" class="btn btn-primary">Read the casetudy</a></p>
+      <p><a href="{%url 'blog-post' blog.id%}" class="btn btn-primary">Read my Blog</a></p>
     </div>
   </div>
   {%endfor%}
