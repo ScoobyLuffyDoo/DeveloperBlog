@@ -30,6 +30,7 @@
 	// Animate Projects
 	
 	var animateBox = function() {
+		$( "#animate-box p" ).addClass('animate-box')
 		if ( $('.animate-box').length > 0 ) {
 			$('.animate-box').waypoint( function( direction ) {
 										
