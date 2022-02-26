@@ -20,7 +20,7 @@ def blogPosts(request,pk):
     context= {'blogStory':blogStory,'css_class':css_class}
     return render(request,'blog/blog_post.html',context, )
 
-def login(request):
+def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
     
@@ -58,3 +58,7 @@ def registerPage(request):
             messages.error(request, 'An error occurred during registration')
     context = {'form': form,'page':'Register'}
     return render(request, 'blog/login.html', context )
+
+def logoutUser(request):
+    logout(request)
+    return redirect('home')

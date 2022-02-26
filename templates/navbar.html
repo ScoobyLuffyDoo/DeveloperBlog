@@ -12,7 +12,11 @@
                     <div id="fh5co-navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="{% url 'home'%}"><span>Home <span class="border"></span></span></a></li>
+                            {% if request.user.is_authenticated %}
+                            <li class="active"> <a href="{% url 'logout'%}">logout</a></li>
+                            {% else %}
                             <li class="active"> <a href="{% url 'login'%}">login</a></li>
+                            {% endif %}
                             <!-- <li><a href="right-sidebar.html"><span>Right Sidebar <span class="border"></span></span></a></li>
                             <li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li> -->
                         </ul>
