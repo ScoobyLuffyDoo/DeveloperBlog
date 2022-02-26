@@ -1,10 +1,9 @@
-from multiprocessing import context
-import re
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from .forms import BlogPostForm ,NewUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models  import BlogPost
 # Create your views here
 
@@ -34,7 +33,15 @@ def createUpdateBlog(request):
         return redirect('home')
     context = {'form':form}
     return render(request,'blog/create_update_blog.html',context)
-    
+
+@login_required(login_url='login')  
+def deleteBlog(request,pk):
+    blog = BlogPost.objects.get(id=pk)
+    if request.method == 'POST':
+        blog.delete()
+    return redirect('home')
+
+ 
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
