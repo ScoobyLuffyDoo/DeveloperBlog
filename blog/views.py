@@ -16,10 +16,9 @@ def home(request):
 
 
 def blogPosts(request,pk):    
-    blogStory =BlogPost.objects.get(id=pk)
-    css_class = 'animate-box'
-    context= {'blogStory':blogStory,'css_class':css_class}
-    return render(request,'blog/blog_post.html',context, )
+    blogStory =BlogPost.objects.get(id=pk)    
+    context= {'blogStory':blogStory}
+    return render(request,'blog/blog_post.html',context )
 
 
 def createUpdateBlog(request):
@@ -34,12 +33,14 @@ def createUpdateBlog(request):
     context = {'form':form}
     return render(request,'blog/create_update_blog.html',context)
 
-@login_required(login_url='login')  
 def deleteBlog(request,pk):
-    blog = BlogPost.objects.get(id=pk)
+    blog =BlogPost.objects.get(id=pk)
+    print(blog.id)
     if request.method == 'POST':
         blog.delete()
-    return redirect('home')
+        return redirect('home')
+    context= {'blog':blog}
+    return render(request, 'blog/blog_delete.html',context)
 
  
 def loginPage(request):
