@@ -708,7 +708,7 @@ pre {
 
 // Owl Carousel
 .owl-carousel .owl-controls,
-.owl-carousel-posts .owl-controls, {
+.owl-carousel-posts .owl-controls {
 	margin-top: 0;
 }
 .owl-carousel .owl-controls .owl-nav {
@@ -895,6 +895,7 @@ pre {
 .mfp-with-zoom.mfp-bg {
   opacity: 0;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   /* ideally, transition speed should match zoom duration */
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;

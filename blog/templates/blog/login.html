@@ -5,7 +5,7 @@
 {%load static%}
 <link rel="stylesheet" href="{% static 'styles/login.css' %}" />
 {% if page == 'login' %}
-<div>
+<div id="fh5co-main">
   <h1 class="intro-lead">Login</h1>
   <form method="POST" action="">
     {% csrf_token %}
@@ -27,7 +27,7 @@
 
 {% else %}
 
-<div>
+<div id="fh5co-main">
   <h1 class="intro-lead">Register</h1>
   <form method="POST" action="">
     {% csrf_token %} {{form.as_p}}

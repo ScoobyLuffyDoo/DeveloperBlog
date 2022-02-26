@@ -7551,7 +7551,7 @@ h1, h2, h3, h4, h5, h6 {
   #fh5co-portfolio .fh5co-portfolio-item.fh5co-img-right .fh5co-portfolio-figure {
     position: relative;
     top: auto;
-    bototm: auto;
+    bottom: auto;
     height: 400px;
   }
 }
@@ -7868,7 +7868,7 @@ pre {
 }
 .fh5co-list-check li:before {
   font-family: 'icomoon';
-  speak: none;
+  /* speak: none; */
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -8186,6 +8186,7 @@ pre {
 .mfp-with-zoom.mfp-bg {
   opacity: 0;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   /* ideally, transition speed should match zoom duration */
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
