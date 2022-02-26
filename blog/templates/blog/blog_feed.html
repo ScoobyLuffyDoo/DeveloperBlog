@@ -3,7 +3,7 @@
 {% for blog in blogPosts %} 
 {%if forloop.counter|divisibleby:"2"%}
   <div class="fh5co-portfolio-item fh5co-img-right">
-    <div class="fh5co-portfolio-figure animate-box" style="background-image: url({%static 'images/work_2.jpg'%});"></div>  
+    <div class="fh5co-portfolio-figure animate-box" style="background-image: url({% static 'images/work_2.jpg' %});"></div>  
     <div class="fh5co-portfolio-description">
       <div class="room__topRight">
         <a href="">
@@ -32,11 +32,11 @@
       
 {%else%}
   <div class="fh5co-portfolio-item">
-  <div class="fh5co-portfolio-figure animate-box" style="background-image: url({%static 'images/work_1.jpg'%});"></div>
+  <div class="fh5co-portfolio-figure animate-box" style="background-image: url({% static 'images/work_1.jpg' %})"></div>
   <div class="fh5co-portfolio-description">
     <div class="room__topRight">
       <a href="">
-        < enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+        <svg enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
           <title>edit</title>
           <g>
             <path d="m23.5 22h-15c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h15c.276 0 .5.224.5.5s-.224.5-.5.5z" />
@@ -49,7 +49,7 @@
               <path d="m17.889 10.146c-.128 0-.256-.049-.354-.146l-3.535-3.536c-.195-.195-.195-.512 0-.707s.512-.195.707 0l3.536 3.536c.195.195.195.512 0 .707-.098.098-.226.146-.354.146z" />
             </g>
           </g>
-        </>
+        </svg>
       </a>
       <a href="">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">

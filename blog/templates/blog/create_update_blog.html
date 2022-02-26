@@ -1,12 +1,25 @@
 {% extends 'main.html' %} 
 {% block content %}
 {%load static%}
-<div class="container">
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit"> 
-</form>
-</div>
 
+<div class="container">
+<form method ="POST" class="from">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="blogTitle">Blog Title</label>
+      <!-- <input type="text" name="username" placeholder="Enter Username" /> -->
+      <input name="blogtitle" type="text" class="form-control" id="blogtitle_id"  placeholder="What is the topic today?" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea required class="form-control" id="description_id" name="description" placeholder="Describe your blog...." rows="2"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="story">The Story:</label>
+        <textarea required class="form-control" id="story_id" name="story" placeholder="Describe your blog...." rows="30"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 {% endblock content%}

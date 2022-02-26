@@ -1,4 +1,5 @@
 from multiprocessing import context
+import re
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from .forms import BlogPostForm ,NewUserForm
@@ -24,11 +25,13 @@ def blogPosts(request,pk):
 
 def createUpdateBlog(request):
     form = BlogPostForm()
-    if request.method == 'POST':
-        form = BlogPostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(home)
+    if request.method == 'POST': 
+        BlogPost.objects.create(
+            blogTitle = request.POST.get('blogtitle'),
+            description = request.POST.get('description'),
+            story = request.POST.get('story'),
+         )
+        return redirect('home')
     context = {'form':form}
     return render(request,'blog/create_update_blog.html',context)
     

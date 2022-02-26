@@ -4,7 +4,7 @@ from django.db.models.deletion import CASCADE
 
 # Create your models here.
 class BlogPost(models.Model):
-    blogTitle = models.CharField(max_length=150)
+    blogTitle = models.CharField(max_length=150, null=True)
     description = models.TextField(null=True, blank=True, max_length=300)
     story = models.TextField(null=True,blank=True)
     updated = models.DateTimeField(auto_now=True)
