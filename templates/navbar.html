@@ -6,14 +6,14 @@
                 <div class="col-md-10 col-md-offset-1">
                     <div class="navbar-header"> 
                     <!-- Mobile Toggle Menu Button -->
-                    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle visible-xs-block" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-                    <a class="navbar-brand" href="index.html">Dev Blog</a>
+                    <a href="{%url 'home' %}" class="js-fh5co-nav-toggle fh5co-nav-toggle visible-xs-block" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                    <a class="navbar-brand" href="{%url 'home' %}">Dev Blog</a>
                     </div>
                     <div id="fh5co-navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="{% url 'home'%}"><span>Home <span class="border"></span></span></a></li>
-                            <!-- <li><a href="right-sidebar.html"><span>Right Sidebar <span class="border"></span></span></a></li>
-                            <li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li> -->
+                            <li><a href="{%url 'create_update_blog'%}"><span>Blog<span class="border"></span></span></a></li>
+                            <!--<li><a href="left-sidebar.html"><span>Left Sidebar <span class="border"></span></span></a></li> -->
                         </ul>
                     </div>
                 </div>
