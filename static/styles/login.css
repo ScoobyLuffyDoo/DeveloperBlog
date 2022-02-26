@@ -5,3 +5,8 @@ p {
 div {
     padding-left: 10px;
 }
+
+div {
+    margin: auto;
+  width: 50%;
+}
