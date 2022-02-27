@@ -11,20 +11,28 @@ from .models  import BlogPost
 
 def home(request):    
     blogPosts =BlogPost.objects.all()
-    conext= {'blogPosts':blogPosts}
-    return render(request,'blog/home.html', conext)
+    context= {'blogPosts':blogPosts}
+    return render(request,'blog/home.html', context)
 
+def myProfile(request,username):
+    try:
+        myBlogs =BlogPost.objects.all().filter(blogger = username)
+        context= {'blogPosts':myBlogs}
+    except:
+        return redirect('home')
+    return render(request,'blog/home.html', context)   
 
 def blogPosts(request,pk):    
     blogStory =BlogPost.objects.get(id=pk)    
     context= {'blogStory':blogStory}
     return render(request,'blog/blog_post.html',context )
 
-
+@login_required(login_url='login')
 def createUpdateBlog(request):
     form = BlogPostForm()
     if request.method == 'POST': 
         BlogPost.objects.create(
+            blogger = request.user,
             blogTitle = request.POST.get('blogtitle'),
             description = request.POST.get('description'),
             story = request.POST.get('story'),
