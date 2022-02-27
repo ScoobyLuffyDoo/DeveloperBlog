@@ -5,12 +5,18 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models  import BlogPost
+
+
+from django.shortcuts import  render
+from django.core.files.storage import FileSystemStorage
+
 # Create your views here
 
 
 
 def home(request):    
     blogPosts =BlogPost.objects.all()
+    print(blogPosts)
     context= {'blogPosts':blogPosts}
     return render(request,'blog/home.html', context)
 
@@ -30,13 +36,18 @@ def blogPosts(request,pk):
 @login_required(login_url='login')
 def createUpdateBlog(request):
     form = BlogPostForm()
-    if request.method == 'POST': 
+    if request.method == 'POST' and request.FILES['project_picture']:         
+        upload = request.FILES['project_picture']
+        # fss = FileSystemStorage()
+        # file = fss.save(upload.name, upload)
+        # file_url = fss.url(file)
         BlogPost.objects.create(
-            blogger = request.user,
-            blogTitle = request.POST.get('blogtitle'),
-            description = request.POST.get('description'),
-            story = request.POST.get('story'),
-         )
+             blogger = request.user,
+             blogTitle = request.POST.get('blogtitle'),
+             description = request.POST.get('description'),
+             story = request.POST.get('story'),
+             image = upload
+          )
         return redirect('home')
     context = {'form':form}
     return render(request,'blog/create_update_blog.html',context)
