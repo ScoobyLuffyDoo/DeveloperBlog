@@ -8,20 +8,20 @@
     <div class="form-group">
       <label for="blogTitle">Blog Title</label>
       <!-- <input type="text" name="username" placeholder="Enter Username" /> -->
-      <input name="blogtitle" type="text" class="form-control" id="blogtitle_id"  placeholder="What is the topic today?" />
+      <input name="blogtitle" type="text" class="form-control" id="blogtitle_id"  placeholder="What is the topic today?" value="{{ blog.blogTitle }}"/>
     </div>
     <div class="form-group">
         <label for="description">Description:</label>
-        <textarea required class="form-control" id="description_id" name="description" placeholder="Describe your blog...." rows="2"></textarea>
+        <textarea required class="form-control" id="description_id" name="description" placeholder="Describe your blog...." rows="2" value="{{ blog.description }}"/>{{ blog.description }}</textarea>
     </div>
     <div class="form-group">
         <label for="story">The Story:</label>
-        <textarea required class="form-control" id="story_id" name="story" placeholder="Describe your blog...." rows="30"></textarea>
+        <textarea required class="form-control" id="story_id" name="story" placeholder="Describe your blog...." rows="30" value="{{ blog.story }}">{{ blog.story }}</textarea>
     </div>
 
     <div class="form-group">
       <label for="project_picture">Project Picture:</label>
-      <input name="project_picture" type="file" accept="image/*" class="form-control" id="project_picture_id"  placeholder="Select your File" />
+      <input name="project_picture" type="file" accept="image/*" class="form-control" id="project_picture_id"  placeholder="Select your File"/>
   </div>
  
     <button type="submit" class="btn btn-primary">Submit</button>

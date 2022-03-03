@@ -7,7 +7,7 @@
     <div class="fh5co-portfolio-description">
       {% if request.user == blog.blogger %} 
       <div class="room__topRight" style="text-align:right;">
-        <a href="">
+        <a href="{% url 'update_blog' blog.id%}">
           <svg enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
             <title>edit</title>
             <g>
@@ -38,7 +38,7 @@
   <div class="fh5co-portfolio-description">
     {% if request.user == blog.blogger %} 
     <div class="room__topRight" style="text-align:right;">
-      <a href="">
+      <a href="{% url 'update_blog' blog.id%}">
         <svg enable-background="new 0 0 24 24" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
           <title>edit</title>
           <g>

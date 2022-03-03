@@ -34,7 +34,7 @@ def blogPosts(request,pk):
     return render(request,'blog/blog_post.html',context )
 
 @login_required(login_url='login')
-def createUpdateBlog(request):
+def createBlog(request):
     form = BlogPostForm()
     if request.method == 'POST' and request.FILES['project_picture']:         
         upload = request.FILES['project_picture']
@@ -51,6 +51,11 @@ def createUpdateBlog(request):
         return redirect('home')
     context = {'form':form}
     return render(request,'blog/create_update_blog.html',context)
+
+def updateBlog(request,pk):
+    blogStory =BlogPost.objects.get(id=pk)  
+    context= {'blog':blogStory}
+    return render(request, 'blog//create_update_blog.html',context)
 
 def deleteBlog(request,pk):
     blog =BlogPost.objects.get(id=pk)
